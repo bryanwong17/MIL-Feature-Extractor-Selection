@@ -1,0 +1,34 @@
+gpu_id: 1 # CHANGE
+
+# Output settings
+output_dir_path: 'outputs'
+feature_extractor: 'vit_small16-ssl-dino-imagenet1k' # CHANGE
+resume: False # CHANGE
+
+# Dataset settings
+dataset:
+  name: 'camelyon16' # CHANGE: ['tcga-nsclc', 'camelyon16']
+  patch_size: 256 # CHANGE
+  base_folder_path: '../datasets/camelyon16/patches'  # CHANGE
+  slide_data_path: 'slide_data/${dataset.name}.csv'
+  extracted_summary_path: '../datasets_csv/${dataset.name}/${feature_extractor}.csv'
+  slide_missing_path: 'slide_missing/${dataset.name}.csv'
+  subsets:
+  - train
+  - test
+  classes: # CHANGE
+  - normal
+  - tumor
+  
+# Model settings
+model:
+  backbone: 'vit_small16' # CHANGE
+  feats_dim: 384 # CHANGE
+  kernel_size:
+  trained_path:
+
+# Feature Extraction settings
+feature_extraction:
+  save_patch_features: False # CHANGE
+  normalization: 'imagenet' # CHANGE: ['imagenet', 'lunit']
+  stain_norm_macenko: False

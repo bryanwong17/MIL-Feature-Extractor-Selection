@@ -1,0 +1,7 @@
+hydra-core==1.3.1
+numpy==1.24.1
+nystrom_attention==0.0.9
+omegaconf==2.3.0
+pillow==10.0.1
+scikit_learn==1.3.2
+tqdm==4.65.0
