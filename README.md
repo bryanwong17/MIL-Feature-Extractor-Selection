@@ -1,6 +1,6 @@
-<h1 align="center"> Rethinking Pre-trained Feature Extractor Selection in Multiple Instance Learning for Whole Slide Image Classification </h1>
+<h1 align="center"> [ISBI 2025] Rethinking Pre-trained Feature Extractor Selection in Multiple Instance Learning for Whole Slide Image Classification </h1>
 
-**Under Submission Review for ISBI 2025**
+**Accepted to IEEE International Symposium on Biomedical Imaging (ISBI) 2025**
 
 <p align="center">
   <img src="figures/introduction.png" alt="Setting Image" width="1000">
