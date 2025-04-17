@@ -2,12 +2,12 @@
 
 **Accepted to IEEE International Symposium on Biomedical Imaging (ISBI) 2025**
 
-## Environments
+## Background
 Multiple Instance Learning (MIL) is widely used for gigapixel Whole Slide Image (WSI) classification without requiring patch-level annotations. Despite its popularity, there’s little consensus on what makes a good pre-trained feature extractor for MIL—most pipelines rely on default configurations without deeper evaluation. 
 
 To address this gap, our study systematically investigates what actually matters in choosing a feature extractor. We analyze three critical dimensions—pre-training dataset, backbone architecture, and self-supervised learning method—and uncover several insights that challenge common assumptions.
 
-## Environments
+## Key Findings
 - The choice of self-supervised learning (SSL) method has a greater impact than in-domain dataset selection
 - Transformer-based backbones with deeper architectures outperform CNNs in generalization
 - Larger and more diverse pre-training datasets significantly enhance feature quality and downstream performance
