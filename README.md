@@ -1,25 +1,22 @@
 <h1 align="center"> [ISBI 2025] Rethinking Pre-trained Feature Extractor Selection in Multiple Instance Learning for Whole Slide Image Classification </h1>
 
-**Accepted to IEEE International Symposium on Biomedical Imaging (ISBI) 2025**
+**IEEE International Symposium on Biomedical Imaging (ISBI) 2025**
+
+[Paper](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10981015) | [Poster](https://drive.google.com/file/d/1KBE8CVJCk-hTm_lcKYhKhdaD1t9Lqrn2/view?usp=sharing) | [Cite](#cite)
 
 ## Background
 Multiple Instance Learning (MIL) is widely used for gigapixel Whole Slide Image (WSI) classification without requiring patch-level annotations. Despite its popularity, there’s little consensus on what makes a good pre-trained feature extractor for MIL—most pipelines rely on default configurations without deeper evaluation. 
 
 To address this gap, our study systematically investigates what actually matters in choosing a feature extractor. We analyze three critical dimensions—pre-training dataset, backbone architecture, and self-supervised learning method—and uncover several insights that challenge common assumptions.
 
+<p align="center">
+  <img src="figures/introduction.png" alt="Setting Image" width="1000">
+</p>
+
 ## Key Findings
 - The choice of self-supervised learning (SSL) method has a greater impact than in-domain dataset selection
 - Transformer-based backbones with deeper architectures outperform CNNs in generalization
 - Larger and more diverse pre-training datasets significantly enhance feature quality and downstream performance
-
-## Resources
-🖼️ [Poster](https://drive.google.com/file/d/1KBE8CVJCk-hTm_lcKYhKhdaD1t9Lqrn2/view?usp=sharing)
-
-📄 [Paper](https://arxiv.org/abs/2408.01167)
-
-<p align="center">
-  <img src="figures/introduction.png" alt="Setting Image" width="1000">
-</p>
 
 ## Environments
 - Linux Ubuntu 20.04.6
@@ -196,3 +193,19 @@ python train_dtfdmil.py --seed 10 --device cuda:0 --num_classes 2 --dataset tcga
 ## Acknowledgement
 
 Our code is mainly built from these amazing works [IBMIL](https://github.com/HHHedo/IBMIL), [ABMIL](https://github.com/AMLab-Amsterdam/AttentionDeepMIL), [DSMIL](https://github.com/binli123/dsmil-wsi), [TransMIL](https://github.com/szc19990412/TransMIL), [DTFD-MIL](https://github.com/hrzhang1123/DTFD-MIL), [HS2P](https://github.com/clemsgrs/hs2p), [Re-implementation HIPT](https://github.com/clemsgrs/hipt)
+
+## Cite
+
+If you find our work useful in your research or if you use parts of this code please consider citing our [paper](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10981015)
+
+```bibtex
+@inproceedings{wong2025rethinking,
+  title={Rethinking pre-trained feature extractor selection in multiple instance learning for whole slide image classification},
+  author={Wong, Bryan and Hong, Sungrae and Yi, Mun Yong},
+  booktitle={2025 IEEE 22nd International Symposium on Biomedical Imaging (ISBI)},
+  pages={1--5},
+  year={2025},
+  organization={IEEE}
+}
+
+
