@@ -196,7 +196,7 @@ Our code is mainly built from these amazing works [IBMIL](https://github.com/HHH
 
 ## Cite
 
-If you find our work useful in your research or if you use parts of this code please consider citing our [paper](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10981015)
+If you find our work useful in your research or if you use parts of this code, please consider citing our [paper](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10981015)
 
 ```bibtex
 @inproceedings{wong2025rethinking,
