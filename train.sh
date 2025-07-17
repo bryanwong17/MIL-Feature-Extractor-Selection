@@ -1,14 +1,23 @@
-python train_abmil_dsmil.py --seed 0 --device cuda:0 --num_classes 2 --dataset tcga-nsclc --feature_extractor resnet50-supervised-imagenet1k-transform --feats_size 1024 --model abmil
-python train_abmil_dsmil.py --seed 0 --device cuda:0 --num_classes 2 --dataset tcga-nsclc --feature_extractor resnet50-supervised-imagenet1k-transform --feats_size 1024 --model dsmil
-python train_transmil.py --seed 0 --device cuda:0 --num_classes 2 --dataset tcga-nsclc --feature_extractor resnet50-supervised-imagenet1k-transform --feats_size 1024 --model transmil
-python train_dtfdmil.py --seed 0 --device cuda:0 --num_classes 2 --dataset tcga-nsclc --feature_extractor resnet50-supervised-imagenet1k-transform --feats_size 1024 --model DTFD --distill MaxMinS
+# Define variables
+DEVICE="cuda:0"
+DATASET="tcga-nsclc"
+NUM_CLASSES=2
+FEATURE_EXTRACTOR="resnet50-supervised-imagenet1k"
+FEATS_SIZE=1024
+SEEDS=(1 17 2000)
 
-python train_abmil_dsmil.py --seed 5 --device cuda:0 --num_classes 2 --dataset tcga-nsclc --feature_extractor resnet50-supervised-imagenet1k-transform --feats_size 1024 --model abmil
-python train_abmil_dsmil.py --seed 5 --device cuda:0 --num_classes 2 --dataset tcga-nsclc --feature_extractor resnet50-supervised-imagenet1k-transform --feats_size 1024 --model dsmil
-python train_transmil.py --seed 5 --device cuda:0 --num_classes 2 --dataset tcga-nsclc --feature_extractor resnet50-supervised-imagenet1k-transform --feats_size 1024 --model transmil
-python train_dtfdmil.py --seed 5 --device cuda:0 --num_classes 2 --dataset tcga-nsclc --feature_extractor resnet50-supervised-imagenet1k-transform --feats_size 1024 --model DTFD --distill MaxMinS
+# Run training for each seed
+for SEED in "${SEEDS[@]}"
+do
+    echo "Running ABMIL with seed $SEED"
+    python train_abmil_dsmil.py --seed $SEED --device "$DEVICE" --num_classes $NUM_CLASSES --dataset "$DATASET" --feature_extractor "$FEATURE_EXTRACTOR" --feats_size $FEATS_SIZE --model abmil
 
-python train_abmil_dsmil.py --seed 10 --device cuda:0 --num_classes 2 --dataset tcga-nsclc --feature_extractor resnet50-supervised-imagenet1k-transform --feats_size 1024 --model abmil
-python train_abmil_dsmil.py --seed 10 --device cuda:0 --num_classes 2 --dataset tcga-nsclc --feature_extractor resnet50-supervised-imagenet1k-transform --feats_size 1024 --model dsmil
-python train_transmil.py --seed 10 --device cuda:0 --num_classes 2 --dataset tcga-nsclc --feature_extractor resnet50-supervised-imagenet1k-transform --feats_size 1024 --model transmil
-python train_dtfdmil.py --seed 10 --device cuda:0 --num_classes 2 --dataset tcga-nsclc --feature_extractor resnet50-supervised-imagenet1k-transform --feats_size 1024 --model DTFD --distill MaxMinS
+    echo "Running DSMIL with seed $SEED"
+    python train_abmil_dsmil.py --seed $SEED --device "$DEVICE" --num_classes $NUM_CLASSES --dataset "$DATASET" --feature_extractor "$FEATURE_EXTRACTOR" --feats_size $FEATS_SIZE --model dsmil
+
+    echo "Running TransMIL with seed $SEED"
+    python train_transmil.py --seed $SEED --device "$DEVICE" --num_classes $NUM_CLASSES --dataset "$DATASET" --feature_extractor "$FEATURE_EXTRACTOR" --feats_size $FEATS_SIZE --model transmil
+
+    echo "Running DTFD-MIL (MaxMins) with seed $SEED"
+    python train_dtfdmil.py --seed $SEED --device "$DEVICE" --num_classes $NUM_CLASSES --dataset "$DATASET" --feature_extractor "$FEATURE_EXTRACTOR" --feats_size $FEATS_SIZE --model DTFD --distill MaxMinS
+done
