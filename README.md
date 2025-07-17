@@ -169,25 +169,11 @@ model               # Which MIL model to use ['abmil', 'dsmil', 'transmil', 'DTF
 distill             # Only Used for DTFD-MIL ['MaxMinS', 'MaxS', 'AFS']
 ````
 
-To train all four SOTA MIL models with 3 times running (e.g., seed 0, 5, 10) using the previously extracted features (e.g., resnet50-supervised-pretrained-imagenet-1k) is as below (refer to `train.sh`):
+To train all four SOTA MIL models with 3 times running (e.g., seed 1, 17, 2000) using the previously extracted features (e.g., resnet50-supervised-pretrained-imagenet-1k) is as below:
 
  ```bash
 cd ..
-
-python train_abmil_dsmil.py --seed 0 --device cuda:0 --num_classes 2 --dataset tcga-nsclc --feature_extractor resnet50-supervised-imagenet1k --feats_size 1024 --model abmil
-python train_abmil_dsmil.py --seed 0 --device cuda:0 --num_classes 2 --dataset tcga-nsclc --feature_extractor resnet50-supervised-imagenet1k --feats_size 1024 --model dsmil
-python train_transmil.py --seed 0 --device cuda:0 --num_classes 2 --dataset tcga-nsclc --feature_extractor resnet50-supervised-imagenet1k --feats_size 1024 --model transmil
-python train_dtfdmil.py --seed 0 --device cuda:0 --num_classes 2 --dataset tcga-nsclc --feature_extractor resnet50-supervised-imagenet1k --feats_size 1024 --model DTFD --distill MaxMinS
-
-python train_abmil_dsmil.py --seed 5 --device cuda:0 --num_classes 2 --dataset tcga-nsclc --feature_extractor resnet50-supervised-imagenet1k --feats_size 1024 --model abmil
-python train_abmil_dsmil.py --seed 5 --device cuda:0 --num_classes 2 --dataset tcga-nsclc --feature_extractor resnet50-supervised-imagenet1k --feats_size 1024 --model dsmil
-python train_transmil.py --seed 5 --device cuda:0 --num_classes 2 --dataset tcga-nsclc --feature_extractor resnet50-supervised-imagenet1k --feats_size 1024 --model transmil
-python train_dtfdmil.py --seed 5 --device cuda:0 --num_classes 2 --dataset tcga-nsclc --feature_extractor resnet50-supervised-imagenet1k --feats_size 1024 --model DTFD --distill MaxMinS
-
-python train_abmil_dsmil.py --seed 10 --device cuda:0 --num_classes 2 --dataset tcga-nsclc --feature_extractor resnet50-supervised-imagenet1k --feats_size 1024 --model abmil
-python train_abmil_dsmil.py --seed 10 --device cuda:0 --num_classes 2 --dataset tcga-nsclc --feature_extractor resnet50-supervised-imagenet1k --feats_size 1024 --model dsmil
-python train_transmil.py --seed 10 --device cuda:0 --num_classes 2 --dataset tcga-nsclc --feature_extractor resnet50-supervised-imagenet1k --feats_size 1024 --model transmil
-python train_dtfdmil.py --seed 10 --device cuda:0 --num_classes 2 --dataset tcga-nsclc --feature_extractor resnet50-supervised-imagenet1k --feats_size 1024 --model DTFD --distill MaxMinS
+bash train.sh
 ````
 
 ## Acknowledgement
